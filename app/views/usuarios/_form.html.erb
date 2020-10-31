@@ -1,0 +1,70 @@
+<%= form_with(model: usuario, local: true) do |form| %>
+  <%= javascript_pack_tag 'form_js' %>
+
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+        <% usuario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Nome %>
+    <%= form.text_field :Nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :CPF %>
+    <%= form.text_field :CPF %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DataNascimento %>
+    <%= form.date_select :DataNascimento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.text_field :Email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Telefone %>
+    <%= form.number_field :Telefone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Endereco %>
+    <%= form.text_field :Endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :CEP %>
+    <%= form.text_field :CEP %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Estado %>
+    <%= form.select :Estado, ['PE', 'SP'] %>
+    <%#<%= form.text_field :Cidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Cidade %>
+    <%= form.radio_button :Cidade, "Recife"%>Recife<br />
+    <%= form.radio_button :Cidade, "São Paulo"%>São Paulo<br />
+    <%= form.radio_button :Cidade, "Olinda"%>Olinda<br />
+    
+    
+    <%#<%= form.text_field :Estado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
